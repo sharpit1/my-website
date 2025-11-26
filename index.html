@@ -3,10 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+    <title>Name - Graduate Student</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 기본 스타일 설정 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        /* 링크 스타일 */
+        a { color: #0056b3; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* 헤더 (프로필 섹션) */
+        header {
+            display: flex;
+            align-items: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 40px;
+        }
+        
+        /* 프로필 사진 스타일 */
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%; /* 원형으로 만들기 */
+            object-fit: cover;
+            margin-right: 40px;
+            border: 3px solid #f4f4f4;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-info h1 { margin: 0 0 10px 0; font-size: 2.5rem; }
+        .header-info p { margin: 5px 0; color: #666; font-size: 1.1rem; }
+        .social-links { margin-top: 15px; }
+        .social-links a { margin-right: 15px; font-size: 1.2rem; color: #555; }
+        .social-links a:hover { color: #0056b3; }
+
+        /* 섹션 공통 스타일 */
+        section { margin-bottom: 50px; }
+        h2 {
+            border-bottom: 2px solid #f4f4f4;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #222;
+        }
+
+        /* 논문 리스트 스타일 */
+        .publication-item { margin-bottom: 20px; }
+        .pub-title { font-weight: bold; font-size: 1.1rem; }
+        .pub-authors { color: #555; }
+        .pub-venue { font-style: italic; color: #0056b3; }
+        .pub-links a {
+            display: inline-block;
+            font-size: 0.85rem;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #555;
+        }
+        .pub-links a:hover { background-color: #f4f4f4; text-decoration: none; }
+
+        /* 반응형 (모바일) 설정 */
+        @media (max-width: 600px) {
+            header { flex-direction: column; text-align: center; }
+            .profile-photo { margin-right: 0; margin-bottom: 20px; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This is a simple website hosted on GitHub Pages.</p>
+
+    <header>
+        <img src="profile.jpg" alt="Profile Photo" class="profile-photo">
+        
+        <div class="header-info">
+            <h1>홍 길 동 (Gildong Hong)</h1>
+            <p>M.S. Student in Artificial Intelligence</p>
+            <p>Korea Aerospace University (한국항공대학교)</p>
+            <p>Email: example@kau.ac.kr</p>
+            
+            <div class="social-links">
+                <a href="https://scholar.google.com" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="cv.pdf" target="_blank"><i class="fas fa-file-alt"></i> CV</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            안녕하세요, 저는 한국항공대학교 AI 연구실에서 석사 과정을 밟고 있는 홍길동입니다.<br>
+            주로 <strong>Trustworthy AI</strong>, <strong>Adversarial Robustness</strong>, 그리고 <strong>Computer Vision</strong> 분야에 관심을 가지고 연구하고 있습니다.
+        </p>
+        <p>
+            (여기에 더 자세한 소개글을 영어 혹은 한국어로 작성하시면 됩니다. 자신의 연구 철학이나 현재 집중하고 있는 프로젝트에 대해 간략히 설명하세요.)
+        </p>
+    </section>
+
+    <section id="news">
+        <h2>News</h2>
+        <ul>
+            <li><strong>[2024.11]</strong> Paper accepted at NeurIPS 2024!</li>
+            <li><strong>[2024.03]</strong> Started M.S. program at KAU.</li>
+        </ul>
+    </section>
+
+    <section id="publications">
+        <h2>Publications</h2>
+        
+        <div class="publication-item">
+            <div class="pub-title">Paper Title Goes Here (논문 제목)</div>
+            <div class="pub-authors"><strong>Gildong Hong</strong>, Co-author Name, Advisor Name</div>
+            <div class="pub-venue">Conference on Neural Information Processing Systems (NeurIPS), 2024</div>
+            <div class="pub-links">
+                <a href="#">[PDF]</a>
+                <a href="#">[Code]</a>
+                <a href="#">[Project Page]</a>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-title">Another Research Paper Title</div>
+            <div class="pub-authors">Co-author Name, <strong>Gildong Hong</strong>, Advisor Name</div>
+            <div class="pub-venue">IEEE Access, 2023</div>
+            <div class="pub-links">
+                <a href="#">[PDF]</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="activities">
+        <h2>Professional Activities</h2>
+        <ul>
+            <li>
+                <strong>Reviewer</strong>
+                <ul>
+                    <li>NeurIPS 2025 Reviewer</li>
+                    <li>ICLR 2024 Reviewer</li>
+                </ul>
+            </li>
+            <br>
+            <li>
+                <strong>Teaching Assistant</strong>
+                <ul>
+                    <li>Introduction to Machine Learning (Fall 2024)</li>
+                    <li>Data Structures (Spring 2024)</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9rem; color: #777;">
+        &copy; 2025 Gildong Hong. Powered by GitHub Pages.
+    </footer>
+
 </body>
 </html>
