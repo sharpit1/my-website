@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Name - Graduate Student</title>
+    <title>Dongsu Song</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* 기본 스타일 설정 */
+        /* 기본 설정 */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
@@ -21,80 +21,161 @@
         a { color: #0056b3; text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        /* 헤더 (프로필 섹션) */
-        header {
+        /* --- 내비게이션 바 스타일 --- */
+        nav {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            padding-bottom: 40px;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            background-color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             border-bottom: 1px solid #eee;
-            margin-bottom: 40px;
         }
         
-        /* 프로필 사진 스타일 */
-        .profile-photo {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%; /* 원형으로 만들기 */
-            object-fit: cover;
-            margin-right: 40px;
-            border: 3px solid #f4f4f4;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-menu li { margin-left: 20px; }
+        
+        .nav-menu a {
+            color: #555;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover { color: #0056b3; }
+
+        /* 모바일 메뉴 설정 */
+        @media (max-width: 600px) {
+            nav { flex-direction: column; }
+            .nav-menu { margin-top: 15px; font-size: 0.9rem; }
+            .nav-menu li { margin: 0 8px; }
         }
 
-        .header-info h1 { margin: 0 0 10px 0; font-size: 2.5rem; }
-        .header-info p { margin: 5px 0; color: #666; font-size: 1.1rem; }
-        .social-links { margin-top: 15px; }
-        .social-links a { margin-right: 15px; font-size: 1.2rem; color: #555; }
-        .social-links a:hover { color: #0056b3; }
+        /* --- 헤더 (프로필) 스타일 --- */
+        header {
+            background-color: #004d40;
+            color: white;
+            padding: 50px 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 40px;
+            border: 4px solid rgba(255,255,255,0.3);
+        }
 
-        /* 섹션 공통 스타일 */
-        section { margin-bottom: 50px; }
+        .header-info h1 { margin: 0 0 10px 0; font-size: 2.2rem; }
+        .header-info p { margin: 5px 0; color: #e0e0e0; font-size: 1.1rem; }
+        .social-links { margin-top: 15px; }
+        .social-links a { margin-right: 15px; font-size: 1.2rem; color: rgba(255,255,255,0.8); }
+        .social-links a:hover { color: #fff; }
+
+        /* --- 섹션 공통 스타일 --- */
+        section { 
+            margin-bottom: 60px; 
+            scroll-margin-top: 80px; /* 네비게이션바에 가려짐 방지 */
+        }
         h2 {
             border-bottom: 2px solid #f4f4f4;
             padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            color: #222;
+            margin-bottom: 25px;
+            font-size: 1.7rem;
+            color: #111;
         }
 
-        /* 논문 리스트 스타일 */
-        .publication-item { margin-bottom: 20px; }
-        .pub-title { font-weight: bold; font-size: 1.1rem; }
-        .pub-authors { color: #555; }
-        .pub-venue { font-style: italic; color: #0056b3; }
+        /* --- Education 스타일 (새로 추가됨) --- */
+        .edu-item {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .edu-details { flex: 1; }
+        .edu-degree { font-weight: bold; font-size: 1.1rem; color: #222; }
+        .edu-school { color: #555; margin-top: 2px; }
+        .edu-note { font-size: 0.95rem; color: #666; margin-top: 4px; }
+        .edu-date { 
+            font-weight: 500; 
+            color: #0056b3; 
+            min-width: 140px; 
+            text-align: right; 
+        }
+
+        /* --- 논문 리스트 스타일 --- */
+        .publication-item { margin-bottom: 25px; }
+        .pub-title { font-weight: bold; font-size: 1.1rem; color: #000; }
+        .pub-authors { color: #444; margin: 4px 0; }
+        .pub-venue { font-style: italic; color: #0056b3; margin-bottom: 8px; }
         .pub-links a {
             display: inline-block;
             font-size: 0.85rem;
-            margin-right: 10px;
-            border: 1px solid #ddd;
-            padding: 2px 8px;
-            border-radius: 4px;
+            margin-right: 8px;
+            border: 1px solid #ccc;
+            padding: 3px 10px;
+            border-radius: 15px;
             color: #555;
+            transition: all 0.2s;
         }
-        .pub-links a:hover { background-color: #f4f4f4; text-decoration: none; }
+        .pub-links a:hover { 
+            background-color: #0056b3; 
+            color: #fff; 
+            border-color: #0056b3;
+            text-decoration: none; 
+        }
 
-        /* 반응형 (모바일) 설정 */
+        /* 반응형 (모바일) */
         @media (max-width: 600px) {
-            header { flex-direction: column; text-align: center; }
-            .profile-photo { margin-right: 0; margin-bottom: 20px; }
+            header { flex-direction: column; text-align: center; padding: 40px 20px; }
+            .profile-photo { margin-right: 0; margin-bottom: 20px; width: 140px; height: 140px; }
+            .edu-item { flex-direction: column; }
+            .edu-date { text-align: left; margin-bottom: 5px; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <a href="#" class="nav-logo">Dongsu Song</a>
+        <ul class="nav-menu">
+            <li><a href="#about">Bio</a></li>
+            <li><a href="#education">Education</a></li> <li><a href="#publications">Papers</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#activities">Experience</a></li>
+        </ul>
+    </nav>
+
     <header>
-        <img src="profile.jpg" alt="Profile Photo" class="profile-photo">
-        
+        <img src="profile.jpg" alt="Dongsu Song" class="profile-photo">
         <div class="header-info">
-            <h1>홍 길 동 (Gildong Hong)</h1>
-            <p>M.S. Student in Artificial Intelligence</p>
-            <p>Korea Aerospace University (한국항공대학교)</p>
+            <h1>Dongsu Song</h1>
+            <p>M.S. in Artificial Intelligence</p>
+            <p>Korea Aerospace University </p>
             <p>Email: example@kau.ac.kr</p>
             
             <div class="social-links">
-                <a href="https://scholar.google.com" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/KAU-QuantumAILab" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/dongsu-song-05a194286/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="cv.pdf" target="_blank"><i class="fas fa-file-alt"></i> CV</a>
             </div>
         </div>
@@ -103,44 +184,65 @@
     <section id="about">
         <h2>About Me</h2>
         <p>
-            안녕하세요, 저는 한국항공대학교 AI 연구실에서 석사 과정을 밟고 있는 홍길동입니다.<br>
-            주로 <strong>Trustworthy AI</strong>, <strong>Adversarial Robustness</strong>, 그리고 <strong>Computer Vision</strong> 분야에 관심을 가지고 연구하고 있습니다.
+            Hello! I am <strong>Dongsu Song</strong>. I received my M.S. degree in Artificial Intelligence from Korea Aerospace University in 2025. 
+            My research interests lie in <strong>Trustworthy AI</strong>, <strong>Adversarial Robustness</strong>, and <strong>Reinforcement Learning</strong>.
         </p>
         <p>
-            (여기에 더 자세한 소개글을 영어 혹은 한국어로 작성하시면 됩니다. 자신의 연구 철학이나 현재 집중하고 있는 프로젝트에 대해 간략히 설명하세요.)
+            Currently, I am focusing on enhancing the robustness of vision models against sparse adversarial attacks and exploring safety in Multi-Modal Language Models.
         </p>
     </section>
 
-    <section id="news">
-        <h2>News</h2>
-        <ul>
-            <li><strong>[2024.11]</strong> Paper accepted at NeurIPS 2024!</li>
-            <li><strong>[2024.03]</strong> Started M.S. program at KAU.</li>
-        </ul>
+    <section id="education">
+        <h2>Education</h2>
+        
+        <div class="edu-item">
+            <div class="edu-details">
+                <div class="edu-degree">M.S. in Artificial Intelligence</div>
+                <div class="edu-school">Korea Aerospace University, South Korea</div>
+                <div class="edu-note">Advisor: Prof. Jay Hoon Jung</div>
+            </div>
+            <div class="edu-date">Mar. 2023 – Feb. 2025</div>
+        </div>
+
+        <div class="edu-item">
+            <div class="edu-details">
+                <div class="edu-degree">B.S. in Aerospace and Mechanical Engineering</div>
+                <div class="edu-school">Korea Aerospace University, South Korea</div>
+            </div>
+            <div class="edu-date">Mar. 2017 – Feb. 2023</div>
+        </div>
     </section>
 
     <section id="publications">
         <h2>Publications</h2>
         
         <div class="publication-item">
-            <div class="pub-title">Paper Title Goes Here (논문 제목)</div>
-            <div class="pub-authors"><strong>Gildong Hong</strong>, Co-author Name, Advisor Name</div>
+            <div class="pub-title">Amnesia as a Catalyst for Enhancing Black Box Pixel Attacks in Image Classification and Object Detection</div>
+            <div class="pub-authors"><strong>Dongsu Song</strong>, Daehwa Ko, Jay Hoon Jung</div>
             <div class="pub-venue">Conference on Neural Information Processing Systems (NeurIPS), 2024</div>
             <div class="pub-links">
-                <a href="#">[PDF]</a>
-                <a href="#">[Code]</a>
-                <a href="#">[Project Page]</a>
+                <a href="https://papers.nips.cc/paper_files/paper/2024/hash/9e770fcdb456400325c11d58b3a04d08-Abstract-Conference.html" target="_blank">[Paper]</a>
+                <a href="https://github.com/KAU-QuantumAILab/RFPAR" target="_blank">[Code]</a>
             </div>
         </div>
 
         <div class="publication-item">
-            <div class="pub-title">Another Research Paper Title</div>
-            <div class="pub-authors">Co-author Name, <strong>Gildong Hong</strong>, Advisor Name</div>
-            <div class="pub-venue">IEEE Access, 2023</div>
+            <div class="pub-title">A Quantitative Comparison of LIME and SHAP using Stamp-Based Distance Method on Image Data</div>
+            <div class="pub-authors"><strong>Dongsu Song</strong>, Jay Hoon Jung</div>
+            <div class="pub-venue">Journal of KIISE, 2023</div>
             <div class="pub-links">
-                <a href="#">[PDF]</a>
+                <a href="https://doi.org/10.5626/jok.2023.50.10.906" target="_blank">[Paper]</a>
             </div>
         </div>
+    </section>
+
+    <section id="news">
+        <h2>News</h2>
+        <ul>
+            <li><strong>[2025.02]</strong> Graduated with an M.S. degree from KAU.</li>
+            <li><strong>[2024.11]</strong> Paper accepted at NeurIPS 2024!</li>
+            <li><strong>[2024.03]</strong> Started M.S. program at KAU.</li>
+        </ul>
     </section>
 
     <section id="activities">
@@ -150,22 +252,21 @@
                 <strong>Reviewer</strong>
                 <ul>
                     <li>NeurIPS 2025 Reviewer</li>
-                    <li>ICLR 2024 Reviewer</li>
+                    <li>KCCV 2025 Invited Presentation</li>
                 </ul>
             </li>
             <br>
             <li>
-                <strong>Teaching Assistant</strong>
+                <strong>Research Assistant</strong>
                 <ul>
-                    <li>Introduction to Machine Learning (Fall 2024)</li>
-                    <li>Data Structures (Spring 2024)</li>
+                    <li>Industry-University Cooperation Project (2023-2024)</li>
                 </ul>
             </li>
         </ul>
     </section>
 
-    <footer style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9rem; color: #777;">
-        &copy; 2025 Gildong Hong. Powered by GitHub Pages.
+    <footer style="text-align: center; margin-top: 80px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9rem; color: #777;">
+        &copy; 2025 Dongsu Song. Powered by GitHub Pages.
     </footer>
 
 </body>
