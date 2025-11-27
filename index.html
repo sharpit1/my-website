@@ -16,6 +16,31 @@
             padding: 20px;
             background-color: #fff;
         }
+        /* --- 강조(Highlight) 스타일 추가 --- */
+
+        /* 1. 중요한 논문을 감싸는 박스 스타일 */
+        .highlight-paper {
+            background-color: #f8faff; /* 아주 연한 파란색 배경 */
+            border-left: 5px solid #0056b3; /* 왼쪽에 굵은 파란 줄 */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* 살짝 그림자 */
+            margin-bottom: 30px; /* 아래 간격 */
+        }
+        
+        /* 2. 'Selected' 배지 스타일 (빨간 딱지) */
+        .badge {
+            display: inline-block;
+            background-color: #d32f2f; /* 빨간색 */
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
 
         /* 링크 스타일 */
         a { color: #0056b3; text-decoration: none; }
@@ -159,24 +184,25 @@
         <a href="#" class="nav-logo">Dongsu Song</a>
         <ul class="nav-menu">
             <li><a href="#about">Bio</a></li>
-            <li><a href="#education">Education</a></li> <li><a href="#publications">Papers</a></li>
             <li><a href="#news">News</a></li>
+            <li><a href="#publications">Papers</a></li>
             <li><a href="#activities">Experience</a></li>
+            <li><a href="#education">Education</a></li> 
         </ul>
     </nav>
 
     <header>
-        <img src="contents/Dongsu Song.jpg" alt="Dongsu Song" class="profile-photo">
+        <img src="contents/Dongsu song.jpg" alt="Dongsu Song" class="profile-photo">
         <div class="header-info">
             <h1>Dongsu Song</h1>
             <p>M.S. in Artificial Intelligence</p>
             <p>Korea Aerospace University </p>
-            <p>Email: example@kau.ac.kr</p>
+            <p>Email: raister01@kau.ac.kr</p>
             
             <div class="social-links">
                 <a href="https://github.com/KAU-QuantumAILab" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 <a href="https://www.linkedin.com/in/dongsu-song-05a194286/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="contents/CV_song.pdf" target="_blank"><i class="fas fa-file-alt"></i> CV</a>
+                <a href="contents/CV_Song.pdf" target="_blank"><i class="fas fa-file-alt"></i> CV</a>
             </div>
         </div>
     </header>
@@ -202,34 +228,18 @@
         </ul>
     </section>
     
-    <section id="education">
-        <h2>Education</h2>
-        
-        <div class="edu-item">
-            <div class="edu-details">
-                <div class="edu-degree">M.S. in Artificial Intelligence</div>
-                <div class="edu-school">Korea Aerospace University, South Korea</div>
-                <div class="edu-note">Advisor: Prof. Jay Hoon Jung</div>
-            </div>
-            <div class="edu-date">Mar. 2023 – Feb. 2025</div>
-        </div>
-
-        <div class="edu-item">
-            <div class="edu-details">
-                <div class="edu-degree">B.S. in Aerospace and Mechanical Engineering</div>
-                <div class="edu-school">Korea Aerospace University, South Korea</div>
-            </div>
-            <div class="edu-date">Mar. 2017 – Feb. 2023</div>
-        </div>
-    </section>
 
     <section id="publications">
         <h2>Publications</h2>
         
-        <div class="publication-item">
-            <div class="pub-title">Amnesia as a Catalyst for Enhancing Black Box Pixel Attacks in Image Classification and Object Detection</div>
+        <div class="publication-item highlight-paper">
+            <div class="pub-title">
+                Amnesia as a Catalyst for Enhancing Black Box Pixel Attacks in Image Classification and Object Detection
+                <span class="badge">Selected</span> </div>
             <div class="pub-authors"><strong>Dongsu Song</strong>, Daehwa Ko, Jay Hoon Jung</div>
-            <div class="pub-venue">Conference on Neural Information Processing Systems (NeurIPS), 2024</div>
+            <div class="pub-venue">
+                <strong>Conference on Neural Information Processing Systems (NeurIPS), 2024</strong>
+            </div>
             <div class="pub-links">
                 <a href="https://papers.nips.cc/paper_files/paper/2024/hash/9e770fcdb456400325c11d58b3a04d08-Abstract-Conference.html" target="_blank">[Paper]</a>
                 <a href="https://github.com/KAU-QuantumAILab/RFPAR" target="_blank">[Code]</a>
@@ -246,26 +256,51 @@
         </div>
     </section>
 
-    
-
     <section id="activities">
         <h2>Professional Activities</h2>
         <ul>
             <li>
-                <strong>Reviewer</strong>
+                <strong>Academic Service (Reviewer)</strong>
                 <ul>
-                    <li>NeurIPS 2025 Reviewer</li>
-                    <li>KCCV 2025 Invited Presentation</li>
+                    <li><strong>NeurIPS 2025</strong> Reviewer</li>
                 </ul>
             </li>
             <br>
             <li>
-                <strong>Research Assistant</strong>
+                <strong>Invited Talk</strong>
                 <ul>
-                    <li>Industry-University Cooperation Project (2023-2024)</li>
+                    <li><strong>KCCV 2025</strong>: "Topic of your presentation"</li>
+                </ul>
+            </li>
+            <br>
+            <li>
+                <strong>Research Experience</strong>
+                <ul>
+                    <li>Research Assistant, Industry-University Cooperation Project (2023-2024)</li>
                 </ul>
             </li>
         </ul>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        
+        <div class="edu-item">
+            <div class="edu-details">
+                <div class="edu-degree">M.S. in Artificial Intelligence</div>
+                <div class="edu-school">Korea Aerospace University</div>
+                <div class="edu-note">Advisor: Prof. Jay Hoon Jung</div>
+            </div>
+            <div class="edu-date">Mar. 2023 – Feb. 2025</div>
+        </div>
+
+        <div class="edu-item">
+            <div class="edu-details">
+                <div class="edu-degree">B.S. in Aerospace and Mechanical Engineering</div>
+                <div class="edu-school">Korea Aerospace University</div>
+            </div>
+            <div class="edu-date">Mar. 2017 – Feb. 2023</div>
+        </div>
     </section>
 
     <footer style="text-align: center; margin-top: 80px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9rem; color: #777;">
