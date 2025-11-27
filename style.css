@@ -1,0 +1,67 @@
+/* style.css */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+a { color: #0056b3; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* 내비게이션 바 */
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 0; margin-bottom: 40px; border-bottom: 1px solid #eee;
+}
+.nav-logo { font-size: 1.5rem; font-weight: bold; color: #333; }
+.nav-menu { display: flex; list-style: none; padding: 0; margin: 0; }
+.nav-menu li { margin-left: 20px; }
+.nav-menu a { color: #555; font-weight: 500; font-size: 1rem; }
+.nav-menu a:hover, .nav-menu a.active { color: #004d40; font-weight: bold; }
+
+/* 헤더 & 프로필 */
+header {
+    background-color: #004d40; color: white; padding: 50px 40px;
+    border-radius: 10px; margin-bottom: 50px; display: flex; align-items: center;
+}
+.profile-photo {
+    width: 160px; height: 160px; border-radius: 50%; object-fit: cover;
+    margin-right: 40px; border: 4px solid rgba(255,255,255,0.3);
+}
+.header-info h1 { margin: 0 0 10px 0; font-size: 2.2rem; }
+.header-info p { margin: 5px 0; color: #e0e0e0; font-size: 1.1rem; }
+.social-links { margin-top: 15px; }
+.social-links a { margin-right: 15px; color: rgba(255,255,255,0.8); font-size: 1.2rem; }
+.social-links a:hover { color: #fff; }
+
+/* 섹션 공통 */
+section { margin-bottom: 60px; }
+h2 { border-bottom: 2px solid #f4f4f4; padding-bottom: 10px; margin-bottom: 25px; font-size: 1.7rem; }
+
+/* 논문 강조 스타일 */
+.highlight-paper {
+    background-color: #f8faff; border-left: 5px solid #0056b3;
+    padding: 20px; border-radius: 8px; margin-bottom: 30px;
+}
+.badge {
+    background-color: #d32f2f; color: white; font-size: 0.75rem; font-weight: bold;
+    padding: 3px 8px; border-radius: 4px; margin-left: 8px; text-transform: uppercase;
+}
+.publication-item { margin-bottom: 25px; }
+.pub-title { font-weight: bold; font-size: 1.1rem; }
+.pub-venue { font-style: italic; color: #0056b3; margin-bottom: 8px; }
+.pub-links a {
+    display: inline-block; font-size: 0.85rem; margin-right: 8px; border: 1px solid #ccc;
+    padding: 3px 10px; border-radius: 15px; color: #555;
+}
+.pub-links a:hover { background-color: #0056b3; color: white; border-color: #0056b3; text-decoration: none; }
+
+/* 모바일 */
+@media (max-width: 600px) {
+    header { flex-direction: column; text-align: center; }
+    nav { flex-direction: column; } .nav-menu { margin-top: 15px; }
+    .profile-photo { margin-right: 0; margin-bottom: 20px; }
+}
