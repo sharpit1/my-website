@@ -65,3 +65,45 @@ h2 { border-bottom: 2px solid #f4f4f4; padding-bottom: 10px; margin-bottom: 25px
     nav { flex-direction: column; } .nav-menu { margin-top: 15px; }
     .profile-photo { margin-right: 0; margin-bottom: 20px; }
 }
+/* --- 사진 갤러리 스타일 --- */
+
+/* 1. 바둑판 레이아웃 설정 */
+.photo-grid {
+    display: grid;
+    /* 화면 크기에 따라 자동으로 열 개수 조절 (최소 250px 너비 보장) */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px; /* 사진 사이 간격 */
+    margin-top: 30px;
+}
+
+/* 2. 개별 사진 카드 스타일 */
+.photo-item {
+    background-color: #fff;
+    border-radius: 8px; /* 모서리 둥글게 */
+    overflow: hidden; /* 둥근 모서리 밖으로 이미지 튀어나옴 방지 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* 부드러운 그림자 */
+    transition: transform 0.3s ease; /* 부드러운 움직임 효과 */
+}
+
+/* 마우스 올렸을 때 살짝 위로 뜨는 효과 */
+.photo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* 3. 이미지 스타일 */
+.photo-item img {
+    width: 100%;
+    height: 200px; /* 모든 사진 높이 통일 (필요하면 수정하세요) */
+    object-fit: cover; /* 비율 유지하며 꽉 채우기 (찌그러짐 방지) */
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+/* 4. 사진 설명(캡션) 스타일 */
+.photo-caption {
+    padding: 12px;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+}
