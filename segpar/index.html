@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SegPAR: Class-Centric Decision-Based Sparse Attack for Semantic Segmentation (ECCV 2026)</title>
+    <meta name="description" content="SegPAR is a decision-based black-box sparse attack for semantic segmentation, with class-centric exploration and a discrepancy reward. ECCV 2026.">
+    <meta property="og:title" content="SegPAR: Class-Centric Decision-Based Sparse Attack for Semantic Segmentation (ECCV 2026)">
+    <meta property="og:description" content="A decision-based black-box sparse attack for semantic segmentation with class-centric exploration and a discrepancy reward.">
+    <meta property="og:image" content="https://sharpit1.github.io/my-website/segpar/static/teaser.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/project.css">
+    <script src="../assets/project.js" defer></script>
+</head>
+<body style="--accent: #c2255c; --accent-soft: #fff0f6;">
+    <div class="topbar">
+        <div class="topbar-inner">
+            <a href="../index.html"><i class="fas fa-arrow-left"></i> Dongsu Song</a>
+            <nav>
+                <a href="#demo">Demo</a>
+                <a href="#method">Method</a>
+                <a href="#results">Results</a>
+                <a href="#bibtex">BibTeX</a>
+            </nav>
+        </div>
+    </div>
+
+    <header class="hero wrap">
+        <span class="venue">ECCV 2026</span>
+        <h1>SegPAR: Class-Centric Decision-Based Sparse Attack for Semantic Segmentation</h1>
+        <p class="short">Class-centric exploration and a discrepancy reward for decision-only black-box attacks</p>
+        <div class="authors">
+            <span><a href="../index.html">Dongsu Song</a></span>
+            <span>Daeyun Go</span>
+            <span>Boseung Seo</span>
+            <span>Jay Hoon Jung<sup>*</sup></span>
+        </div>
+        <div class="affil">Korea Aerospace University &nbsp;&middot;&nbsp; <sup>*</sup>Corresponding author</div>
+        <div class="buttons">
+            <a class="btn" href="https://eccv.ecva.net/virtual/2026/poster/4370" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+            <a class="btn" href="https://arxiv.org/abs/2608.11285" target="_blank"><i class="ai ai-arxiv"></i> arXiv</a>
+            <a class="btn" href="https://github.com/KAU-QuantumAILab/SegPAR" target="_blank"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <p class="tldr"><strong>TL;DR</strong> &nbsp;SegPAR attacks segmentation models that return only their predicted labels, by changing a small fraction of pixels. It explores class by class instead of over the whole image, and its discrepancy reward stops rewarding pixels that flip back to their original class.</p>
+    </header>
+
+    <main class="wrap">
+        <section id="demo">
+            <h2>Compare the Attacks</h2>
+            <p class="section-sub">Pick a dataset and an attack. SegPAR breaks the prediction while perturbing the fewest pixels.</p>
+            <div class="demo" data-seg-explorer data-base="static/demo/"
+                 data-sparsity='{"voc": {"pointwise": 9.57, "sparseevo": 7.38, "rfpar": 3.95, "segpar": 1.36}, "cityscapes": {"pointwise": 11.20, "sparseevo": 4.67, "rfpar": 4.35, "segpar": 3.93}}'>
+                <div class="controls">
+                    <span class="group-label">Dataset</span>
+                    <button class="chip" type="button" data-ds="voc" aria-pressed="true">VOC2012</button>
+                    <button class="chip" type="button" data-ds="cityscapes" aria-pressed="false">Cityscapes</button>
+                </div>
+                <div class="controls">
+                    <span class="group-label">Attack</span>
+                    <button class="chip" type="button" data-method="pointwise" aria-pressed="false">PointWise</button>
+                    <button class="chip" type="button" data-method="sparseevo" aria-pressed="false">SparseEvo</button>
+                    <button class="chip" type="button" data-method="rfpar" aria-pressed="false">RFPAR</button>
+                    <button class="chip" type="button" data-method="segpar" aria-pressed="true">SegPAR (Ours)</button>
+                </div>
+                <div class="panel-grid">
+                    <figure class="panel"><img data-role="clean-img" alt="Clean image"><figcaption>Clean image</figcaption></figure>
+                    <figure class="panel"><img data-role="adv-img" alt="Attacked image"><figcaption>Attacked image</figcaption></figure>
+                    <figure class="panel boost" data-role="delta-wrap"><img data-role="delta" alt="Perturbation"><figcaption>Perturbation (&Delta;)</figcaption></figure>
+                    <figure class="panel"><img data-role="gt" alt="Ground truth"><figcaption>Ground truth</figcaption></figure>
+                    <figure class="panel"><img data-role="clean-pred" alt="Prediction on the clean image"><figcaption>Prediction on clean image</figcaption></figure>
+                    <figure class="panel"><img data-role="adv-pred" alt="Prediction on the attacked image"><figcaption>Prediction on attacked image</figcaption></figure>
+                </div>
+                <div class="demo-foot">
+                    <span class="metric">Perturbed pixels (sparsity): <b data-role="sparsity"></b></span>
+                    <label class="toggle"><input type="checkbox" data-role="boost" checked> Brighten &Delta;</label>
+                </div>
+            </div>
+            <figcaption>Examples from Figure 1 of the paper. PointWise, SparseEvo, and RFPAR are black-box sparse attacks adapted from image classification as baselines.</figcaption>
+        </section>
+
+        <section>
+            <h2>Abstract</h2>
+            <div class="prose">
+                <p>Despite the practical relevance of sparse decision-based black-box threats, they have received limited attention in semantic segmentation. To bridge this gap, we adapt the most representative decision-based black-box sparse attacks from the classification domain to serve as baselines, establishing a rigorous benchmark for this underexplored setting. In this context, we demonstrate that one of the existing methods suffers from severe query inefficiency due to its image-centric pixel accumulation, which rapidly exhausts query budgets across the vast image space.</p>
+                <p>To overcome this, we propose SegPAR, a novel decision-based framework that shifts to a class-centric exploration paradigm. Furthermore, to eliminate the misleading feedback generated by standard decision rewards during pixel accumulation, we introduce a novel discrepancy reward. Extensive experiments show that SegPAR significantly outperforms black-box baselines in sparsity efficiency and MIoU reduction, while remaining competitive with white-box sparse attacks.</p>
+            </div>
+            <ol class="contrib">
+                <li>The first systematic study of decision-based black-box <strong>sparse</strong> attacks for semantic segmentation.</li>
+                <li><strong>SegPAR</strong>, a decision-based black-box sparse attack that improves query efficiency through class-centric exploration.</li>
+                <li>A <strong>discrepancy reward</strong> that removes the unreliable signals of standard decision rewards during pixel accumulation. With SegPAR, it achieves the strongest black-box performance and is competitive with white-box sparse attacks under the same sparsity constraints.</li>
+            </ol>
+        </section>
+
+        <section id="method">
+            <h2>Method</h2>
+            <p class="section-sub">A segmentation attack has to flip labels across many class-specific decision boundaries, not a single global one.</p>
+            <figure>
+                <img src="static/framework.png" alt="SegPAR framework">
+            </figure>
+            <div class="prose" style="margin-top: 22px;">
+                <p><strong>Class-centric exploration.</strong> An image-centric attack such as RFPAR tends to spend its queries on a few large or easily perturbed regions. SegPAR instead queries the model once, fixes a mask for every predicted class, and crops the image to each class's bounding box. The RL agent, conditioned on the class and its crop, outputs sparse pixel perturbations, so the attack spreads across all classes in the image.</p>
+                <p><strong>Discrepancy reward.</strong> A standard decision reward counts every pixel whose prediction changes between steps. It therefore also rewards pixels that revert to their original class or hop between wrong classes, and this misleads the agent. SegPAR measures, inside each fixed class mask, how many more pixels now differ from the <em>initial</em> prediction than at the previous step. Reverted pixels lower this reward instead of raising it.</p>
+                <p><strong>Memory.</strong> As in RFPAR, SegPAR keeps the best perturbation, discrepancy mask, and reward in memory, and continues from the best image once training converges.</p>
+            </div>
+            <figure class="fig-narrow" style="margin-top: 26px;">
+                <img src="static/discrepancy_reward.png" alt="Standard reward compared with the discrepancy reward">
+                <figcaption>Standard reward versus discrepancy reward.</figcaption>
+            </figure>
+        </section>
+
+        <section id="results">
+            <h2>Results</h2>
+            <p class="section-sub">Lower MIoU with fewer perturbed pixels than every black-box baseline, under a 1,000-query budget.</p>
+            <div class="cards">
+                <div class="card">
+                    <div class="num">0.057</div>
+                    <div class="label">MIoU of PSPNet on Cityscapes</div>
+                    <p>Down from 0.793 on clean images, while perturbing 3.53% of the pixels.</p>
+                </div>
+                <div class="card">
+                    <div class="num">2.24%</div>
+                    <div class="label">Pixels perturbed on VOC2012</div>
+                    <p>Against DeepLabV3, lowering MIoU from 0.861 to 0.238 with 680 queries on average.</p>
+                </div>
+                <div class="card">
+                    <div class="num">3.96%</div>
+                    <div class="label">Pixels perturbed against SegFormer</div>
+                    <p>On Cityscapes, compared with 10.51% for PointWise, while reaching a lower MIoU (0.341 vs. 0.594).</p>
+                </div>
+            </div>
+            <div class="stack" style="margin-top: 34px;">
+                <figure>
+                    <img src="static/classwise_efficiency.png" alt="MIoU degradation per class for RFPAR and SegPAR" loading="lazy">
+                    <figcaption><strong>Class-wise attack efficiency.</strong> MIoU degradation for each class of DeepLabV3 on Cityscapes. With the same standard reward, SegPAR attacks every class faster and more effectively than the image-centric RFPAR.</figcaption>
+                </figure>
+                <figure>
+                    <img src="static/reversion.png" alt="Reversion under the standard and discrepancy rewards" loading="lazy">
+                    <figcaption><strong>Reduction of reversion.</strong> The discrepancy reward suppresses reversion, a major obstacle to training the agent with the standard reward.</figcaption>
+                </figure>
+                <figure>
+                    <img src="static/miou_vs_sparsity.png" alt="MIoU versus sparsity compared with white-box sparse attacks" loading="lazy">
+                    <figcaption><strong>Comparison with white-box sparse attacks.</strong> Without access to gradients, SegPAR with the discrepancy reward outperforms PGD<sub>0</sub> and narrows the gap to sPGD.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="bibtex">
+            <h2>BibTeX</h2>
+            <div class="bibtex">
+                <button class="copy" type="button" data-copy="#bib">Copy</button>
+<pre id="bib">@inproceedings{song2026segpar,
+  title     = {SegPAR: Class-Centric Decision-Based Sparse Attack for Semantic Segmentation},
+  author    = {Song, Dongsu and Go, Daeyun and Seo, Boseung and Jung, Jay Hoon},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026}
+}</pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="../index.html">Dongsu Song</a> &middot; Korea Aerospace University
+    </footer>
+</body>
+</html>
